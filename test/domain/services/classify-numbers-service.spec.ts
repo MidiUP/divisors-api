@@ -1,4 +1,4 @@
-import { ClassifyNumbersService } from './../../../domain/services/classify-numbers-service'
+import { ClassifyNumbersService } from '../../../src/domain/services/classify-numbers-service'
 
 interface sutTypes {
   sut: ClassifyNumbersService

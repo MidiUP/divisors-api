@@ -1,9 +1,9 @@
-import { HttpRequest } from '../../../presentation/protocols/http'
-import { badRequest, serverError, ok } from '../../../presentation/helpers/helpers-http'
-import { MissingParamError } from '../../../presentation/errors/missing-param'
-import { Validation } from '../../../presentation/protocols/validation'
-import { DivisorsPrimeController } from '../../../presentation/controllers/divisors-prime-controller'
-import { ClassifyNumbers } from '../../../domain/usecases/classify-numbers'
+import { HttpRequest } from '../../../src/presentation/protocols/http'
+import { badRequest, serverError, ok } from '../../../src/presentation/helpers/helpers-http'
+import { MissingParamError } from '../../../src/presentation/errors/missing-param'
+import { Validation } from '../../../src/presentation/protocols/validation'
+import { DivisorsPrimeController } from '../../../src/presentation/controllers/divisors-prime-controller'
+import { ClassifyNumbers } from '../../../src/domain/usecases/classify-numbers'
 
 interface sutTypes {
   sut: DivisorsPrimeController
