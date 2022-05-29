@@ -50,7 +50,9 @@ const makeSut = (): sutTypes => {
 }
 
 const req: HttpRequest = {
-  header: {},
+  header: {
+    number: 1
+  },
   body: {}
 }
 
@@ -69,11 +71,25 @@ describe('DivisorsPrime Controller', () => {
     expect(response).toEqual(serverError(new Error()))
   })
 
+  test('service compute divisors shold be called with correct params', async () => {
+    const { sut, service } = makeSut()
+    const spyService = jest.spyOn(service, 'computeDivisors')
+    await sut.handle(req)
+    expect(spyService).toHaveBeenCalledWith(1)
+  })
+
   test('return server error if service compute prime numbers return error', async () => {
     const { sut, service } = makeSut()
     jest.spyOn(service, 'computePrimes').mockImplementationOnce(() => { throw new Error() })
     const response = await sut.handle(req)
     expect(response).toEqual(serverError(new Error()))
+  })
+
+  test('service compute prime numbers shold be called with correct params', async () => {
+    const { sut, service } = makeSut()
+    const spyService = jest.spyOn(service, 'computePrimes')
+    await sut.handle(req)
+    expect(spyService).toHaveBeenCalledWith([0, 1, 2])
   })
 
   test('return ok if all right', async () => {
