@@ -2,11 +2,11 @@ import { HttpRequest } from '../../../src/presentation/protocols/http'
 import { badRequest, serverError, ok } from '../../../src/presentation/helpers/helpers-http'
 import { MissingParamError } from '../../../src/presentation/errors/missing-param'
 import { Validation } from '../../../src/presentation/protocols/validation'
-import { DivisorsPrimeController } from '../../../src/presentation/controllers/divisors-prime-controller'
+import { ClassifyNumbersController } from '../../../src/presentation/controllers/classify-numbers-controller'
 import { ClassifyNumbers } from '../../../src/domain/usecases/classify-numbers'
 
 interface sutTypes {
-  sut: DivisorsPrimeController
+  sut: ClassifyNumbersController
   validator: Validation
   service: ClassifyNumbers
 }
@@ -41,7 +41,7 @@ const makeService = (): ClassifyNumbers => {
 const makeSut = (): sutTypes => {
   const validator = makeValidator()
   const service = makeService()
-  const sut = new DivisorsPrimeController(validator, service)
+  const sut = new ClassifyNumbersController(validator, service)
   return {
     sut,
     validator,
