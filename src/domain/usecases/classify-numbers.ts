@@ -5,11 +5,16 @@ export abstract class ClassifyNumbers implements ComputeDivisors, ComputePrimes 
   computeDivisors (number: number): number[] {
     const divisibleNumbersArray: number[] = [1]
 
+    if (number === 1) {
+      return divisibleNumbersArray
+    }
+
     for (let i = 2; i < number; i++) {
       if (number % i === 0) {
         divisibleNumbersArray.push(i)
       }
     }
+
     divisibleNumbersArray.push(number)
     return divisibleNumbersArray
   }
