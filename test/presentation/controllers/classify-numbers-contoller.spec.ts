@@ -53,10 +53,10 @@ const req: HttpRequest = {
   header: {
     number: 1
   },
-  body: {}
+  body: { }
 }
 
-describe('DivisorsPrime Controller', () => {
+describe('ClassifyNumbers Controller', () => {
   test('return bad request if validator return error', async () => {
     const { sut, validator } = makeSut()
     jest.spyOn(validator, 'validate').mockReturnValueOnce(new Promise(resolve => resolve(new MissingParamError('any'))))
